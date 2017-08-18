@@ -1,6 +1,6 @@
 package uk.gov.ida.saml.core.validation;
 
-import org.apache.log4j.Level;
+import org.slf4j.event.Level;
 
 public class SamlTransformationErrorException extends RuntimeException {
 

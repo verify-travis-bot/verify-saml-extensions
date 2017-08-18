@@ -19,7 +19,7 @@ subprojects {
     }
 
     dependencies {
-        compile group: 'log4j', name: 'log4j', version: '1.2.14'
+        compile 'org.slf4j:slf4j-api:1.7.21'
 
         opensaml "org.opensaml:opensaml-core:$opensaml_version",
                 "org.opensaml:opensaml-saml-api:$opensaml_version",
