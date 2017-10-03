@@ -1,16 +1,18 @@
-# ida-saml-extensions
 
-`ida-saml-extensions` contains the OpenSaml implementations of extensions, typically attributes, defined in the [IDA Saml Profile]("https://www.gov.uk/government/publications/identity-assurance-hub-service-saml-20-profile").
+# SAML Extensions
 
-In addition, it also contains IdaSamlBootstrap class that provides the bootstrapping of these extensions into the SAML environment.
+Libraries containing implementations of the SAML extensions defined in the [IDA Saml Profile]("https://www.gov.uk/government/publications/identity-assurance-hub-servi\
+ce-saml-20-profile"). Additionally it provides:
 
-##
+* Bootstrapping of extensions into SAML environment
+* Test utilities for SAML extension classes
 
-There is a `ida-saml-extensions-test` library which provides builders for using the extensions in tests and JUnit runners using the bootstrapper.
+### Building the project
 
-## Version
+`./gradlew clean build`
 
-Versioning follows the following pattern:
-```
-uk.gov.ida:ida-saml-extensions:$OPENSAML_MAJOR-$PROFILE_VERSION-$BUILD_NUMBER
-```
+## Licence
+
+[MIT Licence](LICENCE)
+
+This code is provided for informational purposes only and is not yet intended for use outside GOV.UK Verify
