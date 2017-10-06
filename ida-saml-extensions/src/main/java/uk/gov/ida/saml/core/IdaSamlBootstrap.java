@@ -75,13 +75,18 @@ import uk.gov.ida.saml.core.extensions.impl.StringValueSamlObjectImpl;
 import uk.gov.ida.saml.core.extensions.impl.UPRNBuilder;
 import uk.gov.ida.saml.core.extensions.impl.VerifiedBuilder;
 import uk.gov.ida.saml.core.extensions.impl.VerifiedImpl;
+import uk.gov.ida.saml.core.extensions.versioning.Version;
+import uk.gov.ida.saml.core.extensions.versioning.VersionBuilder;
+import uk.gov.ida.saml.core.extensions.versioning.VersionImpl;
+import uk.gov.ida.saml.core.extensions.versioning.application.ApplicationVersion;
+import uk.gov.ida.saml.core.extensions.versioning.application.ApplicationVersionBuilder;
 
 public abstract class IdaSamlBootstrap {
 
     private static boolean hasBeenBootstrapped = false;
 
-    public static class BootstrapException extends RuntimeException{
-        public BootstrapException(Exception e){
+    public static class BootstrapException extends RuntimeException {
+        public BootstrapException(Exception e) {
             super(e);
         }
     }
@@ -132,5 +137,8 @@ public abstract class IdaSamlBootstrap {
         XMLObjectProviderRegistrySupport.registerObjectProvider(PersonIdentifier.TYPE_NAME, new PersonIdentifierBuilder(), new PersonIdentifierMarshaller(), new PersonIdentifierUnmarshaller());
         XMLObjectProviderRegistrySupport.registerObjectProvider(CurrentAddress.TYPE_NAME, new CurrentAddressBuilder(), new CurrentAddressMarshaller(), new CurrentAddressUnmarshaller());
         XMLObjectProviderRegistrySupport.registerObjectProvider(uk.gov.ida.saml.core.extensions.eidas.Gender.TYPE_NAME, new uk.gov.ida.saml.core.extensions.eidas.impl.GenderBuilder(), new GenderMarshaller(), new GenderUnmarshaller());
+
+        XMLObjectProviderRegistrySupport.registerObjectProvider(Version.DEFAULT_ELEMENT_NAME, new VersionBuilder(), VersionImpl.MARSHALLER, VersionImpl.UNMARSHALLER);
+        XMLObjectProviderRegistrySupport.registerObjectProvider(ApplicationVersion.DEFAULT_ELEMENT_NAME, new ApplicationVersionBuilder(), StringValueSamlObjectImpl.MARSHALLER, StringValueSamlObjectImpl.UNMARSHALLER);
     }
 }
