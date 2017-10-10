@@ -16,6 +16,7 @@ printf "\n hub-saml"
 printf "\n stub-idp-saml"
 printf "\n ida-hub"
 printf "\n ida-compliance-tool"
+printf "\n verify-service-provider"
 echo
 
 tput bold

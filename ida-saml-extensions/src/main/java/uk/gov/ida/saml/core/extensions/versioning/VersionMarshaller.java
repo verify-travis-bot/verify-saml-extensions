@@ -12,6 +12,6 @@ public class VersionMarshaller extends AbstractSAMLObjectMarshaller {
 
     @Override
     protected void marshallAttributes(XMLObject xmlObject, Element domElement) throws MarshallingException {
-        XMLObjectSupport.marshallAttribute(XMLConstants.XSI_TYPE_ATTRIB_NAME, IdaConstants.IDA_PREFIX + ":" + Version.TYPE_LOCAL_NAME, domElement, false);
+        XMLObjectSupport.marshallAttribute(XMLConstants.XSI_TYPE_ATTRIB_NAME, Version.NAMESPACE_PREFIX + ":" + Version.TYPE_LOCAL_NAME, domElement, false);
     }
 }

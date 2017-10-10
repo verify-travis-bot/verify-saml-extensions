@@ -1,20 +1,19 @@
 package uk.gov.ida.saml.core.extensions.versioning;
 
-import org.opensaml.saml.common.xml.SAMLConstants;
-import org.opensaml.saml.saml1.core.AttributeValue;
-import uk.gov.ida.saml.core.IdaConstants;
+import org.opensaml.saml.saml2.core.AttributeValue;
 import uk.gov.ida.saml.core.extensions.versioning.application.ApplicationVersion;
 
 import javax.xml.namespace.QName;
 
 public interface Version extends AttributeValue {
-    String DEFAULT_ELEMENT_LOCAL_NAME = "AttributeValue";
-    String NAMESPACE_URI = SAMLConstants.SAML20_NS;
-    String NAMESPACE_PREFIX = SAMLConstants.SAML20_PREFIX;
-    QName DEFAULT_ELEMENT_NAME = new QName(NAMESPACE_URI, DEFAULT_ELEMENT_LOCAL_NAME, NAMESPACE_PREFIX);
+
     String TYPE_LOCAL_NAME = "VersionType";
-    QName TYPE_NAME = new QName(IdaConstants.IDA_NS, TYPE_LOCAL_NAME, IdaConstants.IDA_PREFIX);
+    String NAMESPACE_URI = "http://www.cabinetoffice.gov.uk/resource-library/ida/metrics";
+    String NAMESPACE_PREFIX = "metric";
+
+    QName TYPE_NAME = new QName(NAMESPACE_URI, TYPE_LOCAL_NAME, NAMESPACE_PREFIX);
 
     ApplicationVersion getApplicationVersion();
+
     void setApplicationVersion(ApplicationVersion applicationVersion);
 }

@@ -4,6 +4,7 @@ import org.opensaml.core.xml.XMLObject;
 import org.opensaml.core.xml.io.Marshaller;
 import org.opensaml.core.xml.io.Unmarshaller;
 import org.opensaml.saml.common.AbstractSAMLObject;
+import org.opensaml.saml.common.xml.SAMLConstants;
 import uk.gov.ida.saml.core.extensions.versioning.application.ApplicationVersion;
 
 import javax.annotation.Nonnull;
@@ -20,7 +21,7 @@ public class VersionImpl extends AbstractSAMLObject implements Version {
     private ApplicationVersion applicationVersion;
 
     public VersionImpl() {
-        super(Version.NAMESPACE_URI, Version.DEFAULT_ELEMENT_LOCAL_NAME, Version.NAMESPACE_PREFIX);
+        super(SAMLConstants.SAML20_NS, Version.DEFAULT_ELEMENT_LOCAL_NAME, SAMLConstants.SAML20_PREFIX);
         super.setSchemaType(Version.TYPE_NAME);
     }
 
