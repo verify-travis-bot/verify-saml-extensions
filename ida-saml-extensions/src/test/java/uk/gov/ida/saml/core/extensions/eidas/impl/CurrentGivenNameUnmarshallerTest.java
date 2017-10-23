@@ -14,6 +14,7 @@ public class CurrentGivenNameUnmarshallerTest {
     public void shouldUnmarshallCurrentGivenName() throws Exception {
         final CurrentGivenName currentGivenName = Utils.unmarshall("" +
                 "<saml2:AttributeValue " +
+                "   xmlns:eidas-natural=\"http://eidas.europa.eu/attributes/naturalperson\"\n " +
                 "   xmlns:saml2=\"urn:oasis:names:tc:SAML:2.0:assertion\"\n " +
                 "   xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n " +
                 "   xsi:type=\"eidas-natural:CurrentGivenNameType\">\n" +

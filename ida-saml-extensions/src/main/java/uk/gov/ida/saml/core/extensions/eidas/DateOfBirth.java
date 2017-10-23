@@ -7,6 +7,8 @@ import uk.gov.ida.saml.core.IdaConstants;
 
 import javax.xml.namespace.QName;
 
+import static uk.gov.ida.saml.core.IdaConstants.EIDAS_NATURAL_PERSON_NS;
+
 public interface DateOfBirth extends AttributeValue {
 
     /** Element local name. */
@@ -19,7 +21,7 @@ public interface DateOfBirth extends AttributeValue {
     String TYPE_LOCAL_NAME = "DateOfBirthType";
 
     /** QName of the XSI type. */
-    QName TYPE_NAME = new QName(null, TYPE_LOCAL_NAME, IdaConstants.EIDAS_NATURUAL_PREFIX);
+    QName TYPE_NAME = new QName(EIDAS_NATURAL_PERSON_NS, TYPE_LOCAL_NAME, IdaConstants.EIDAS_NATURUAL_PREFIX);
 
     /**
      * Gets the date of birth.

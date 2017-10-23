@@ -3,6 +3,7 @@ package uk.gov.ida.saml.core;
 public interface IdaConstants {
 
     String EIDAS_NS = "http://eidas.europa.eu/saml-extensions";
+    String EIDAS_NATURAL_PERSON_NS = "http://eidas.europa.eu/attributes/naturalperson";
     String EIDAS_PREFIX = "eidas";
     String EIDAS_NATURUAL_PREFIX = EIDAS_PREFIX + "-natural";
     String IDA_NS = "http://www.cabinetoffice.gov.uk/resource-library/ida/attributes";
