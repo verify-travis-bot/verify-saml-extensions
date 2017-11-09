@@ -1,0 +1,13 @@
+sudo: required
+
+services:
+  - docker
+
+before_script:
+  - docker build -t verify-saml-extension .
+
+script:
+  - docker run verify-saml-extension bash ./gradlew build
+
+notifications:
+  email: false

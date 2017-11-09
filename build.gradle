@@ -2,7 +2,7 @@ apply from: 'buildSrc/publish.gradle'
 apply plugin: 'java'
 
 subprojects {
-    ext { 
+    ext {
       opensaml_version = "3.3.0"
       saml_profile_version = "1.2a"
     }
@@ -10,7 +10,7 @@ subprojects {
     version = "$opensaml_version-$saml_profile_version-${System.env.BUILD_NUMBER ?: 'SNAPSHOT'}"
 
     repositories {
-        maven { url 'https://artifactory.ida.digital.cabinet-office.gov.uk/artifactory/whitelisted-repos' }
+        mavenCentral()
     }
 
     configurations {
