@@ -9,10 +9,10 @@ before_install:
 
 before_script:
   - docker build -t verify-saml-extension .
-  - bash -c "([[ -d $(pwd)/build ]] || mkdir $(pwd)/build)"
+  - "[ -d $(pwd)/artifact ] || mkdir $(pwd)/artifact"
 
 script:
-  - docker run --mount type=bind,source="$(pwd)"/build,target=/build --mount type=bind,source="$(pwd)"/buildSrc,target=/buildSrc verify-saml-extension
+  - docker run --mount type=bind,source="$(pwd)"/artifact,target=/ida-saml-extensions/build verify-saml-extension
 
 
 notifications:
