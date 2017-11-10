@@ -12,7 +12,7 @@ before_script:
   - mkdir $(pwd)/build
 
 script:
-  - docker run --mount type=bind,source="$(pwd)"/build,target=/build verify-saml-extension bash ./gradlew -d build
+  - docker run --mount type=bind,source="$(pwd)"/build,target=/build --mount type=bind,source="$(pwd)"/buildSrc,target=/buildSrc verify-saml-extension
 
 notifications:
   email: false
