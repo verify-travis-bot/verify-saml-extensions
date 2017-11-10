@@ -1,19 +1,7 @@
-sudo: required
-
-services:
-  - docker
-
-before_install:
-  - sudo apt-get update
-  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
-
-before_script:
-  - docker -v
-  - docker build -t verify-saml-extension .
-  - mkdir $(pwd)/build
+language: java
 
 script:
-  - docker run --mount type=bind,source="$(pwd)"/build,target=/build verify-saml-extension bash ./gradlew build
+  - ./gradlew clean build
 
 notifications:
   email: false
