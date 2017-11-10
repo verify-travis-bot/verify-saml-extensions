@@ -8,11 +8,12 @@ before_install:
   - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 
 before_script:
-  - mkdir $(pwd)/build
   - docker build -t verify-saml-extension .
+  - bash -c "([[ -d $(pwd)/build ]] || mkdir $(pwd)/build)"
 
 script:
   - docker run --mount type=bind,source="$(pwd)"/build,target=/build --mount type=bind,source="$(pwd)"/buildSrc,target=/buildSrc verify-saml-extension
+
 
 notifications:
   email: false
