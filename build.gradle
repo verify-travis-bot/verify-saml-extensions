@@ -10,7 +10,9 @@ subprojects {
     version = "$opensaml_version-$saml_profile_version-${System.env.BUILD_NUMBER ?: 'SNAPSHOT'}"
 
     repositories {
-        mavenCentral()
+        maven{
+            url "http://34.241.75.87:8081/artifactory/verify"
+      }
     }
 
     configurations {
