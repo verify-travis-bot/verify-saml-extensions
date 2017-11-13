@@ -13,7 +13,7 @@ jobs:
     - docker build -t verify-saml-extension .
     - "[ -d $(pwd)/artifact ] || mkdir $(pwd)/artifact"
     script:
-    - docker run --mount type=bind,source="$(pwd)"/artifact,target=/ida-saml-extensions/build verify-saml-extension test
+    - docker run --mount type=bind,source="$(pwd)"/artifact verify-saml-extension test
     after_success:
     - rm -f $(pwd)/artifact/*
     #deploy:
@@ -25,7 +25,7 @@ jobs:
     - docker build -t verify-saml-extension .
     - "[ -d $(pwd)/artifact ] || mkdir $(pwd)/artifact"
     script:
-    - docker run --mount type=bind,source="$(pwd)"/artifact,target=/ida-saml-extensions/build verify-saml-extension test
+    - docker run --mount type=bind,source="$(pwd)"/artifact verify-saml-extension build
     deploy:
       provider: s3
       access_key_id: AKIAIRZ4WLJNQX2RWDLA
