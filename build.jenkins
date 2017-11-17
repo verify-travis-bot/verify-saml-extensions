@@ -4,12 +4,12 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                ./gradlew --daemon --parallel test
+                sh ./gradlew --daemon --parallel test
             }
         }
         stage('Publish') {
             steps {
-                ./gradlew --daemon --parallel publish
+                sh ./gradlew --daemon --parallel publish
             }
         }
     }
