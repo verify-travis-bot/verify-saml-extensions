@@ -1,0 +1,16 @@
+pipeline {
+    agent { dockerfile true }
+
+    stages {
+        stage('Test') {
+            steps {
+                ./gradlew --daemon --parallel test
+            }
+        }
+        stage('Publish') {
+            steps {
+                ./gradlew --daemon --parallel publish
+            }
+        }
+    }
+}
