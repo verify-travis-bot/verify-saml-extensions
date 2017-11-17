@@ -1,16 +1,9 @@
-pipeline {
-    agent { dockerfile true }
+node(linux) {
+  checkout scm
 
-    stages {
-        stage('Test') {
-            steps {
-                sh ./gradlew --daemon --parallel test
-            }
-        }
-        stage('Publish') {
-            steps {
-                sh ./gradlew --daemon --parallel publish
-            }
-        }
-    }
+  def container = docker.build 'verify-saml-extensions'
+
+  container.inside {
+    sh './gradlew build'
+  }
 }
