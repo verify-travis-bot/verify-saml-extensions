@@ -9,7 +9,18 @@ ce-saml-20-profile"). Additionally it provides:
 
 ### Building the project
 
-`./gradlew clean build`
+Locally:
+
+```bash
+./gradlew clean build
+```
+
+Or to reproduce exactly what the build server does, with docker:
+
+```bash
+docker build verify-saml-extensions
+docker run build
+```
 
 ## Licence
 
