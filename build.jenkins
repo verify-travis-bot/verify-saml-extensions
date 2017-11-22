@@ -1,9 +1,22 @@
-node {
-  checkout scm
+pipeline {
+    agent { dockerfile true }
 
-  def container = docker.build 'verify-saml-extensions'
-
-  container.inside {
-    sh './gradlew build'
-  }
+    stages {
+        stage('Build') {
+            when {
+                not { branch 'master' }
+            }
+            steps {
+                sh './gradlew --daemon --parallel build'
+            }
+        }
+        stage('Publish') {
+            when {
+                branch 'master'
+            }
+            steps {
+                sh './gradlew --daemon --parallel publish'
+            }
+        }
+    }
 }
