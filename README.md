@@ -1,6 +1,6 @@
 
 # SAML Extensions
-hi
+
 Libraries containing implementations of the SAML extensions defined in the [IDA Saml Profile]("https://www.gov.uk/government/publications/identity-assurance-hub-servi\
 ce-saml-20-profile"). Additionally it provides:
 
@@ -9,7 +9,18 @@ ce-saml-20-profile"). Additionally it provides:
 
 ### Building the project
 
-`./gradlew clean build`
+Locally:
+
+```bash
+./gradlew clean build
+```
+
+Or to reproduce exactly what the build server does, with docker:
+
+```bash
+docker build verify-saml-extensions
+docker run build
+```
 
 ## Licence
 

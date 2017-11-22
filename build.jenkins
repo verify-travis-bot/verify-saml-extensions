@@ -1,0 +1,22 @@
+pipeline {
+    agent { dockerfile true }
+
+    stages {
+        stage('Build') {
+            when {
+                not { branch 'master' }
+            }
+            steps {
+                sh './gradlew --daemon --parallel build'
+            }
+        }
+        stage('Publish') {
+            when {
+                branch 'master'
+            }
+            steps {
+                sh './gradlew --daemon --parallel publish'
+            }
+        }
+    }
+}
